@@ -1,0 +1,35 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{heroe.superhero}}</mat-card-title>
+        <mat-card-subtitle>{{heroe.alter_ego}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <!-- mat-card-image esto hace q la imagen sea resposive 
+    retorna assets/heroes/dc-batman.jpg
+    corchetes para escuchar el pipe-->
+    <img  mat-card-image [src]="heroe | imagen"> 
+
+    <mat-card-content>
+        <h3>{{heroe.publisher}}</h3>
+        <p>
+            <strong>Priemra aparicion</strong> {{heroe.first_appearance}}
+            <br>
+            <strong>Personajes</strong> {{heroe.characters}}
+        </p>
+    </mat-card-content>   
+    
+    <!-- aqui se hacen los botones -->
+    <mat-card-actions>
+        <!-- la ruta para que valla al ide del heroe  debe de mandar el string estamos mandando el objeto-->
+        <button mat-button 
+        [routerLink]="['/heroes',heroe.id]"           
+        color="warn">
+            Leer mas..
+        </button>
+        <button mat-button 
+            [routerLink]="['/heroes/editar',heroe.id]"
+            color="accent">
+            Editar
+        </button>
+    </mat-card-actions>
+</mat-card>

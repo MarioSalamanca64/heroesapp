@@ -1,0 +1,30 @@
+<h1>Listado de Heroes</h1>
+<!-- divicion es como un hr -->
+<mat-divider></mat-divider>
+<br>
+
+<!-- esto es de angular flex row es poner todo en colomnas 
+    - wrap espara cuando no quepan mandarlas abajo 
+    - fxLayout.xs="column" si la pantalla es muy peque;a solo que muestre una columna
+    - fxLayoutAlign="center" centra las targetas
+    -fxLayoutGap="20px" para separarlas 20px-->
+<div fxLayout="row wrap"
+    fxLayout.xs="column"
+    fxLayoutAlign="center"
+    fxLayoutGap="20px">
+    <!-- darles 20% de ancho de total de las targetas
+    -fxFlex.lg="15" caundo la pantalla es larga o grande
+    - fxFlex.sm="30" sm es peque;o-->
+    <div fxFlex="20"
+        fxFlex.lg="15"
+        fxFlex.sm="30"
+        *ngFor="let heroe of heroes"> 
+        <!--  -->
+      <app-heroes-targetas [heroe]="heroe"></app-heroes-targetas>
+        <!--  -->
+    </div>
+
+
+</div>
+
+

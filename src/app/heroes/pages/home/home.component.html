@@ -1,0 +1,83 @@
+<!-- fullscreen es ocupa toda la pantalla 
+cambia el color tanbien-->
+<mat-sidenav-container fullscreen>
+    <!-- mode push es para empujar lo elementos 
+    #sidenav local-->
+    <mat-sidenav #sidenav 
+                mode="push">
+        <mat-toolbar color="warn">
+            
+            <span>Menu</span>
+            <span class="spacer"></span>
+            <button mat-icon-button 
+                    (click)="sidenav.toggle()">
+                <mat-icon>
+                    menu
+                </mat-icon>
+            </button>
+        </mat-toolbar>
+
+        <mat-nav-list>
+        <a routerLink="./listado"
+                mat-list-item
+                (click)="sidenav.toggle()">
+                <!-- desirle a angular material que lista es un icono para que le de mas espacio-->
+                <mat-icon mat-list-icon>
+                    list
+                </mat-icon>
+
+                <span>Listado de Heroes</span>
+        </a>
+        <a routerLink="./agregar"
+            mat-list-item
+            (click)="sidenav.toggle()">
+
+            <mat-icon mat-list-icon>
+                add
+            </mat-icon>
+
+            <span>Añadir Heroe</span>
+        </a>
+        <a routerLink="./buscar"
+            mat-list-item
+            (click)="sidenav.toggle()">
+
+            <mat-icon mat-list-icon>
+            search
+             </mat-icon>
+
+            <span>Buscar Heroe</span>
+        </a>
+        
+        </mat-nav-list>
+
+    </mat-sidenav>
+
+    <mat-toolbar>
+        <!-- buton mat-button 
+        -ref local- sidenav.toggle para darle click y muestre el menu y que se cierre-->
+        <button mat-icon-button 
+                (click)="sidenav.toggle()">
+            <mat-icon>
+                menu
+            </mat-icon>
+        </button>
+        <!-- empuja los elemetos alos bordes -->
+        <span class="spacer"></span>
+
+        <span>{{auth.usuario}}</span>
+
+        <button mat-button
+            (click)="login()">
+            Logout
+        </button>
+    </mat-toolbar>
+    <div class="container">
+        <!-- salida de rutas echas por noostros -->
+        <router-outlet></router-outlet>
+    </div>
+    
+
+</mat-sidenav-container>
+
+
